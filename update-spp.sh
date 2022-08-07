@@ -7,10 +7,12 @@ getTable ${1}
 
 args="
     --table-name ${table}
-    --key {\"pk\":{\"S\":\"asset|${3}\"}}
+    --key {\"pk\":{\"S\":\"spp\"}}
+    --update-expression set capacity=:cap
+    --expression-attribute-values {\":cap\":{\"N\":\"0\"}}
     --return-consumed-capacity TOTAL"
 
 addEndpointUrlArgs ${2}
 
 echo ${args}
-aws dynamodb get-item ${args}
+aws dynamodb update-item ${args}

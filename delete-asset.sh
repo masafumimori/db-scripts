@@ -13,4 +13,4 @@ args="
 addEndpointUrlArgs ${2}
 
 echo ${args}
-aws dynamodb get-item ${args}
+aws dynamodb delete-item ${args}

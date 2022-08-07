@@ -7,10 +7,10 @@ getTable ${1}
 
 args="
     --table-name ${table}
-    --key {\"pk\":{\"S\":\"asset|${3}\"}}
+    --key {\"pk\":{\"S\":\"spp\"}}
     --return-consumed-capacity TOTAL"
 
 addEndpointUrlArgs ${2}
 
 echo ${args}
-aws dynamodb get-item ${args}
+aws dynamodb delete-item ${args}
